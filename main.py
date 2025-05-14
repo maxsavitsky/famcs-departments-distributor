@@ -10,7 +10,7 @@ class Student:
         self.assigned_department = None
         self.assigned_by_which_priority = -1
 
-spreadsheet = gspread.service_account(filename='credentials.json').open_by_key('1_Qq95tMhy7mlyoYDWhpIQ7HgNZo0QeIPELi9ISYQecI')
+spreadsheet = gspread.service_account(filename='credentials.json').open_by_url("https://docs.google.com/spreadsheets/d/1_Qq95tMhy7mlyoYDWhpIQ7HgNZo0QeIPELi9ISYQecI/")
 main_ws = spreadsheet.get_worksheet(0)
 results_ws = spreadsheet.get_worksheet(1)
 
