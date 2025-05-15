@@ -10,6 +10,11 @@ class Student:
         self.assigned_department = None
         self.assigned_by_which_priority = -1
 
+    def __lt__(self, other):
+        if self.score == other.score:
+            return self.full_name < other.full_name
+        return self.score > other.score
+
 def column_letter_to_index(letter: str) -> int:
     return ord(letter.upper()[0]) - ord('A') + 1
 
@@ -74,7 +79,9 @@ def distribute(students: list[Student]):
     for dep in departments.keys():
         deps[dep] = list()
 
-    students.sort(key=lambda s: s.score, reverse=True)
+    students.sort()
+    for s in students:
+        print(s.score, s.full_name)
 
     for student in students:
         for priority in range(8):
@@ -98,7 +105,7 @@ def distribute(students: list[Student]):
         results_ws.update(data, to_a1(3, dep_col, 2 + len(data), dep_col + 1))
 
     not_distributed = [s for s in students if s.assigned_department is None]
-    not_distributed.sort(key=lambda s: s.score, reverse=True)
+    not_distributed.sort()
     results_ws.batch_clear([to_a1(3, column_for_not_distributed, 100, column_for_not_distributed + 1)])
     if len(not_distributed) > 0:
         data = [[s.full_name, str(s.score)] for s in not_distributed]
