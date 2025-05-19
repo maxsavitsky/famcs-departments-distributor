@@ -37,7 +37,7 @@ departments: dict[str, DepartmentInfo] = {
     "ТП":    DepartmentInfo(13, 'D'),
     "ИСУ":   DepartmentInfo(13, 'G'),
     "КТС-2": DepartmentInfo(12, 'J'),
-    "ДМА":   DepartmentInfo(13, 'M'),
+    "ДМА":   DepartmentInfo(12, 'M'),
     "БМИ":   DepartmentInfo(12, 'P'),
     "КТС-4": DepartmentInfo(12, 'S'),
     "ФМиИС": DepartmentInfo(12, 'V'),
@@ -45,8 +45,8 @@ departments: dict[str, DepartmentInfo] = {
 group_boundaries = [
     (1, 26),
     (29, 53),
-    (56, 80),
-    (83, 105)
+    (56, 79),
+    (82, 104)
 ]
 
 def to_a1(row1, col1, row2, col2):
